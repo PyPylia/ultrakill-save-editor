@@ -1,0 +1,18 @@
+[package]
+name = "ultrakill-save-editor"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+eframe = "0.21.3"
+ms-nrbf = { git = "https://github.com/PyPylia/ms-nrbf" }
+registry = "1.2.3"
+strum = { version = "0.24.1", features = ["derive"] }
+indexmap = "1.9.3"
+thiserror = "1.0.40"
+ico = "0.3.0"
+
+[build-dependencies]
+winres = "0.1.12"

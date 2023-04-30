@@ -381,7 +381,7 @@ impl<'a> SaveEditorApp {
                     for weapon in WeaponType::iter() {
                         ui.collapsing(weapon.to_string() + "s", |ui| {
                             ui.set_width(match weapon {
-                                WeaponType::Revolver => 350.0,
+                                WeaponType::Revolver => 385.0,
                                 WeaponType::Shotgun => 385.0,
                                 WeaponType::Nailgun => 350.0,
                                 WeaponType::Railgun => 350.0,

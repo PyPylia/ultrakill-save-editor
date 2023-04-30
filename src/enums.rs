@@ -28,6 +28,7 @@ impl WeaponType {
             Self::Revolver => &[
                 UnlockableWeaponVariant::PiercerRevolver,
                 UnlockableWeaponVariant::MarksmanRevolver,
+                UnlockableWeaponVariant::SharpshooterRevolver,
                 UnlockableWeaponVariant::AlternateRevolver,
             ],
             Self::Shotgun => &[
@@ -83,6 +84,8 @@ pub enum UnlockableWeaponVariant {
     PiercerRevolver,
     #[strum(to_string = "Marksman Revolver")]
     MarksmanRevolver,
+    #[strum(to_string = "Sharpshooter Revolver")]
+    SharpshooterRevolver,
     #[strum(to_string = "Alternate Revolver")]
     AlternateRevolver,
     #[strum(to_string = "Core Eject Shotgun")]

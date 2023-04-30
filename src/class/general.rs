@@ -138,6 +138,10 @@ const UNLOCKABLEWEAPONVARIANT_TO_FIELD_ARRAY: &[(UnlockableWeaponVariant, &str)]
         GREEN_REVOLVER_UNLOCKED_FIELD,
     ),
     (
+        UnlockableWeaponVariant::SharpshooterRevolver,
+        RED_REVOLVER_UNLOCKED_FIELD,
+    ),
+    (
         UnlockableWeaponVariant::AlternateRevolver,
         ALTERNATE_REVOLVER_UNLOCKED_FIELD,
     ),
@@ -192,7 +196,6 @@ const UNLOCKABLEWEAPONVARIANT_TO_FIELD_ARRAY: &[(UnlockableWeaponVariant, &str)]
 ];
 
 const ZEROED_FIELDS: &[&str] = &[
-    RED_REVOLVER_UNLOCKED_FIELD,
     YELLOW_REVOLVER_UNLOCKED_FIELD,
     RED_SHOTGUN_UNLOCKED_FIELD,
     YELLOW_SHOTGUN_UNLOCKED_FIELD,

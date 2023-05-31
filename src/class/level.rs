@@ -48,7 +48,7 @@ impl ParsableClassKeyed<Level> for LevelData {
                 .map(|value| (*value).into())
                 .collect(),
             secrets_found: read_primitive_array!(class, SECRETS_FOUND_FIELD, Boolean),
-            challenge: *read_primitive!(class, CHALLENGE_FIELD, Boolean),
+            challenge: read_primitive!(class, CHALLENGE_FIELD, Boolean),
             major_assists: read_primitive_array!(class, MAJOR_ASSISTS_FIELD, Boolean),
             file_exists: true,
         })

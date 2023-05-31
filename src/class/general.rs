@@ -220,7 +220,7 @@ fn read_boolean_map<K: Copy + Ord>(
     for (key, value) in array {
         mapped_array.push((
             *key,
-            *read_primitive!(class, *value, Boolean),
+            read_primitive!(class, *value, Boolean),
         ))
     }
 
@@ -236,7 +236,7 @@ fn read_int32_bool_map<K: Copy + Ord>(
     for (key, value) in array {
         mapped_array.push((
             *key,
-            *read_primitive!(class, *value, Int32) != 0,
+            read_primitive!(class, *value, Int32) != 0,
         ))
     }
 
@@ -260,13 +260,13 @@ fn write_int32_bool_map<K: Copy + Ord>(
     map: &BTreeMap<K, bool>,
     array: &[(K, &'static str)],
 ) -> Option<()> {
-    for (key, value) in array {
+    for (key, field) in array {
         write_primitive!(
             fields,
-            *value,
+            *field,
             Int32,
             *map.get(key)? as i32
-        )?;
+        );
     }
 
     Some(())
@@ -274,7 +274,7 @@ fn write_int32_bool_map<K: Copy + Ord>(
 
 fn write_0_to_fields(fields: &mut FieldMap, array: &[&'static str]) -> Option<()> {
     for field in array {
-        write_primitive!(fields, *field, Int32, 0)?;
+        write_primitive!(fields, *field, Int32, 0);
     }
 
     Some(())
@@ -325,9 +325,9 @@ impl ParsableClass for GeneralData {
 
         Some(Self {
             money: read_primitive!(class, MONEY_FIELD, Int32).to_string(),
-            intro_seen: *read_primitive!(class, INTRO_SEEN_FIELD, Boolean),
-            tutorial_beat: *read_primitive!(class, TUTORIAL_BEAT_FIELD, Boolean),
-            clash_mode_unlocked: *read_primitive!(
+            intro_seen: read_primitive!(class, INTRO_SEEN_FIELD, Boolean),
+            tutorial_beat: read_primitive!(class, TUTORIAL_BEAT_FIELD, Boolean),
+            clash_mode_unlocked: read_primitive!(
                 class,
                 CLASH_MODE_UNLOCKED_FIELD,
                 Boolean

@@ -43,7 +43,7 @@ impl ParsableClassKeyed<Difficulty> for DifficultyData {
 
         Some(Self {
             current_level: Level::from_repr(
-                *read_primitive!(class, CURRENT_LEVEL_FIELD, Int32) as u16,
+                read_primitive!(class, CURRENT_LEVEL_FIELD, Int32) as u16,
             ),
             prime_levels,
             file_exists: true,

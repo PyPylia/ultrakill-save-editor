@@ -1,30 +1,24 @@
 macro_rules! read_primitive {
     ($class:expr, $field_name:expr, $primitive_type:ident) => {
-        if let Field::Primitive(primitive) = $class.fields.get($field_name)? {
-            if let Primitive::$primitive_type(value) = primitive {
-                value
-            } else {
-                return None;
-            }
+        if let Some(Field::Primitive(Primitive::$primitive_type(value))) =
+            $class.fields.get($field_name)
+        {
+            *value
         } else {
-            return None;
+            <_>::default()
         }
     };
 }
 
 macro_rules! read_primitive_array {
     ($class:expr, $field_name:expr, $primitive_type:ident) => {{
-        let mut values = vec![];
-
-        if let Field::PrimitiveArray(primitive_array) = $class.fields.get($field_name)? {
-            if let PrimitiveArray::$primitive_type(array) = primitive_array {
-                for value in array {
-                    values.push(value.clone());
-                }
-            }
+        if let Some(Field::PrimitiveArray(PrimitiveArray::$primitive_type(array))) =
+            $class.fields.get($field_name)
+        {
+            array.clone()
+        } else {
+            vec![]
         }
-
-        values
     }};
 }
 

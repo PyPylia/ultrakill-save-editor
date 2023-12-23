@@ -1,6 +1,7 @@
 #![windows_subsystem = "windows"]
 
 use std::io::Cursor;
+use eframe::egui::{ViewportBuilder, IconData};
 
 mod app;
 mod class;
@@ -24,13 +25,13 @@ fn main() -> eframe::Result<()> {
 
     let image = largest_icon.decode().unwrap();
 
+    let viewport = ViewportBuilder::default().with_maximized(true).with_icon(IconData {
+        rgba: image.rgba_data().to_vec(),
+        width: image.width(),
+        height: image.height(),
+    });
     let native_options = eframe::NativeOptions {
-        maximized: true,
-        icon_data: Some(eframe::IconData {
-            rgba: image.rgba_data().to_vec(),
-            width: image.width(),
-            height: image.height(),
-        }),
+        viewport,
         ..Default::default()
     };
 

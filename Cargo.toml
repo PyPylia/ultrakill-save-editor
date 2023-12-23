@@ -6,12 +6,12 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-eframe = "0.21.3"
+eframe = "0.24.1"
 ms-nrbf = { git = "https://github.com/PyPylia/ms-nrbf" }
 registry = "1.2.3"
-strum = { version = "0.24.1", features = ["derive"] }
-indexmap = "1.9.3"
-thiserror = "1.0.40"
+strum = { version = "0.25.0", features = ["derive"] }
+indexmap = "2.1.0"
+thiserror = "1.0.51"
 ico = "0.3.0"
 
 [build-dependencies]

@@ -166,6 +166,14 @@ pub enum EnemyType {
     SisyphusPrime = 29,
     #[strum(to_string = "Flesh Panopticon")]
     FleshPanopticon = 30,
+    Mannequin = 31,
+    Minotaur = 32,
+    Gutterman = 33,
+    Guttertank = 34,
+    #[strum(to_string = "1000-THR \"Earthmover\"")]
+    Centaur = 35,
+    #[strum(to_string = "Big Johninator")]
+    BigJohnator = 37,
 }
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Default, FromRepr, Display)]
@@ -368,6 +376,12 @@ impl Layer {
                 Level::AestheticsOfHate,
                 Level::WaitOfTheWorld,
             ],
+            Self::Violence => &[
+                Level::GardenOfForkingPaths,
+                Level::LightUpTheNight,
+                Level::NoSoundNoMemory,
+                Level::LikeAntennasToHeaven,
+            ],
             _ => &[],
         }
     }
@@ -444,6 +458,15 @@ pub enum Level {
     CryForTheWeeper = 24,
     #[strum(to_string = "6-2: AESTHETICS OF HATE")]
     AestheticsOfHate = 25,
+    #[strum(to_string = "7-1: GARDEN OF FORKING PATHS")]
+    GardenOfForkingPaths = 26,
+    #[strum(to_string = "7-2: LIGHT UP THE NIGHT")]
+    LightUpTheNight = 27,
+    #[strum(to_string = "7-3: NO SOUND, NO MEMORY")]
+    NoSoundNoMemory = 28,
+    #[strum(to_string = "7-4: ...LIKE ANTENNAS TO HEAVEN")]
+    LikeAntennasToHeaven = 29,
+
 
     #[strum(to_string = "P-1: SOUL SURVIVOR")]
     SoulSurvivor = 666,
@@ -494,6 +517,10 @@ impl Level {
             Self::Leviathan => 0,
             Self::CryForTheWeeper => 5,
             Self::AestheticsOfHate => 0,
+            Self::GardenOfForkingPaths => 5,
+            Self::LightUpTheNight => 5,
+            Self::NoSoundNoMemory => 5,
+            Self::LikeAntennasToHeaven => 0,
 
             Self::SoulSurvivor => 0,
             Self::WaitOfTheWorld => 0,
